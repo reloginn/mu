@@ -4,12 +4,9 @@ use crate::template::DEFAULT_TEMPLATE;
 use colored::Colorize;
 use std::{
     env,
-    fs::{self, File}
+    fs::{self, File},
 };
-use std::{
-    io::Write,
-    process::Command,
-};
+use std::{io::Write, path::PathBuf, process::Command};
 use tracing::{error, info};
 use tracing_subscriber::fmt;
 
@@ -30,17 +27,25 @@ fn program_is_in_path(program: &str) -> bool {
 
 #[cfg(unix)]
 fn main() -> Result<(), Error> {
-    use std::path::PathBuf;
-
     fmt().init();
     if program_is_in_path("tarantool") {
         let current_dir = env::current_dir()?;
         let rocks = PathBuf::from(format!("{}/.rocks", current_dir.to_string_lossy()));
         if !rocks.exists() {
-            let tarantoolctl = Command::new("tarantoolctl").args(["rocks", "install", "http"]).current_dir(&current_dir).spawn()?.wait()?.success();
+            let tarantoolctl = Command::new("tarantoolctl")
+                .args(["rocks", "install", "http"])
+                .current_dir(&current_dir)
+                .spawn()?
+                .wait()?
+                .success();
             if !tarantoolctl {
-                error!("{}", "The `tarantoolctl` child process terminated with an error".red().bold());
-                return Err(Error::ChildProcessTerminated)
+                error!(
+                    "{}",
+                    "The `tarantoolctl` child process terminated with an error"
+                        .red()
+                        .bold()
+                );
+                return Err(Error::ChildProcessTerminated);
             }
         }
         File::create(current_dir.join("template.lua"))?.write_all(DEFAULT_TEMPLATE.as_bytes())?;
