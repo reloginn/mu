@@ -3,7 +3,7 @@
 # What is it? #
 - It's a program that runs **Tarantool** itself and configures it to work with sessions.
 
-# How do you use it?
+# How do I use it?
 - First, you need to clone this repository:
 ```shell
 git clone https://github.com/reloginn/mu.git
@@ -20,6 +20,7 @@ mv ./target/release/mu ~/tarantool
 
 # Available requests
 - There are currently two requests available: `PUT 0.0.0.0.0:5432` and `GET 0.0.0.0.0:5432`.
+
 **PUT 0.0.0.0.0:5432/**
 ```json
 {
@@ -36,6 +37,7 @@ mv ./target/release/mu ~/tarantool
 ```
 
 - To get a user by session, send a request like this:
+
 **GET 0.0.0.0.0:5432/**
 ```json
 {
@@ -57,6 +59,7 @@ mv ./target/release/mu ~/tarantool
 ```
 
 - You can also get all the user's sessions by sending a similar request:
+
 **GET 0.0.0.0.0:5432/**
 ```json
 {
@@ -69,7 +72,7 @@ mv ./target/release/mu ~/tarantool
 - **Tarantool** (you can install it using your distribution's package manager)
 - **cargo**
 
-# Why is it not supported by Windows?
+# Why is it not supported Windows?
 - **Tarantool** does not support Windows, you can install WSL (Windows Subsystem for Linux) and work from there.
 
 # TODO
