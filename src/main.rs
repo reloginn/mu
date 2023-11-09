@@ -65,13 +65,12 @@ fn main() -> Result<(), Error> {
 }
 
 #[cfg(windows)]
-fn main() -> Result<_, Error> {
+fn main() {
     fmt().init();
     error!(
         "{}",
         format!("Windows is not supported because Tarantool is not available on Windows")
             .red()
             .bold()
-    );
-    Err::<_, Error>(Error::UnsupportedPlatform)
+    )
 }
