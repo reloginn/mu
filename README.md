@@ -47,6 +47,7 @@ mv ./target/release/mu ~/tarantool
 - If everything was successful, you will receive JSON of the following form in response:
 ```json
 {
+    "session": "value",
     "uuid": "value",
     "user_agent": "value"
 }

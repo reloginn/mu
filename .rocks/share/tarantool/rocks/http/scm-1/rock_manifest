@@ -1,0 +1,21 @@
+rock_manifest = {
+   doc = {
+      ["CHANGELOG.md"] = "a0a255033115c7104953b75bfcc1b3a7",
+      LICENSE = "5068ec3afa5021c3641e6f6be1d9acf0",
+      ["README.md"] = "cf3e5ef69fafa14fb2c6a6f50400d18d"
+   },
+   ["http-scm-1.rockspec"] = "7ca1ebbe0259fcd96f78f3390e0dedfc",
+   lib = {
+      http = {
+         ["lib.so"] = "9b80bcb1a30de624aec791ae2ca12b09"
+      }
+   },
+   lua = {
+      http = {
+         ["codes.lua"] = "b3b672d0ee65d9a8b45e04aa18fabd18",
+         ["mime_types.lua"] = "d4877cafb0b74d132eb4d65596981dae",
+         ["server.lua"] = "0cad42f2548d6a304bd0173e16e48756",
+         ["version.lua"] = "3600e7c21151672c97ce3a1aac818792"
+      }
+   }
+}
