@@ -11,7 +11,7 @@ git clone https://github.com/reloginn/mu.git
 - Go to the folder and compile the program:
 ```shell
 cd mu
-cargo run --release
+cargo build --release
 mkdir ~/tarantool
 mv ./target/release/mu ~/tarantool
 ```
